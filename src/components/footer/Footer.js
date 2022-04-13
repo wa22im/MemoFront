@@ -4,9 +4,9 @@ import * as React from 'react';
 
 function Copyright() {
   return (
-    <Typography variant="subtitle2" color="text.secondary">
+    <Typography variant="subtitle2" color="textSecondary">
       {'Copyright © '}
-      <Link color="inherit" href="https://www.linkedin.com/in/wassim-miledi/">
+      <Link color="primary" href="https://www.linkedin.com/in/wassim-miledi/">
         Wassim Miladi
       </Link>{' '}
       {2022}
@@ -18,12 +18,11 @@ function Copyright() {
 export default function StickyFooter() {
   return (
     <Container maxWidth="sm"  style ={{
-      height: '100px',
-      width:"100%",
-      position: 'absolute',
+  
+      position: 'relative',
       left: '0',
       bottom: '0',
-      margin:'0'
+      marginTop:'30vh'
   }
   }>
           <Typography variant="subtitle2">

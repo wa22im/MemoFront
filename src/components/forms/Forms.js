@@ -20,6 +20,7 @@ const Form = ({ currentId, setCurrentId }) => {
     currentId ? state.posts.posts.find((p) => p._id === currentId) : null
   );
   const handleSubmit = (e) => {
+
     e.preventDefault();
     if (!currentId)
       dispatch(createPost({ ...postData, name: user?.result?.name }));
@@ -70,6 +71,7 @@ const Form = ({ currentId, setCurrentId }) => {
           fullWidth
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
+          required
         ></TextField>{" "}
         <TextField
           className={classes.fileInput}
@@ -79,7 +81,7 @@ const Form = ({ currentId, setCurrentId }) => {
           fullWidth
           multiline
           minRows={4}
-
+          required
           value={postData.message}
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
@@ -102,7 +104,7 @@ const Form = ({ currentId, setCurrentId }) => {
             
             }    
         
-          
+            required
           
         ></TextField>
         <Paper className={classes.buttonSubmit}>
@@ -130,6 +132,7 @@ const Form = ({ currentId, setCurrentId }) => {
           className={classes.buttonSubmit}
           variant="contained"
           onClick={clearForm}
+          
           color="secondary"
           fullWidth
         >

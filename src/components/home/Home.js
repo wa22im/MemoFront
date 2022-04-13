@@ -39,9 +39,13 @@ const searchPost =()=>{
   else {
     history.push('/')
   }
+  cleanSearchState()
 }
 
-
+const cleanSearchState = ()=>{
+  setTags([])
+  setSearch('')
+}
 const handleKeyDown =(e)=>{
   if ( e.keyCode ===13){
     searchPost()

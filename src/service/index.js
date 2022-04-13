@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({baseURL:'https://memoappmernstack.herokuapp.com'})
+const API = axios.create({baseURL:'http://localhost:5002/api/v1'})
 
 API.interceptors.request.use((req)=>{
 
@@ -11,7 +11,7 @@ API.interceptors.request.use((req)=>{
 })
 export const fetchPostById =(post)=>API.get(`${'/posts'}/${post}`)
 export const fetchPosts=(pageNumber)=> API.get(`/posts?page=${pageNumber}`) ;
-export const fetchPostsBySearch=(searchQuery)=> API.get(`/posts/search?searchQuery=${searchQuery.search|| 'none'}&tags=${searchQuery.tags|| 'none'}` ) ;
+export const fetchPostsBySearch=(searchQuery)=> API.get(`/search/posts?searchQuery=${searchQuery.search|| 'none'}&tags=${searchQuery.tags|| 'none'}` ) ;
 export const createPost=(post)=>API.post('/posts',post)
 export const updatePost =(post)=>API.patch(`${'/posts'}/${post._id}`,post)
 export const deletePost =(post)=>API.delete(`${'/posts'}/${post._id}`)

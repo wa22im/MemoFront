@@ -8,6 +8,7 @@ export default (
   },
   action
 ) => {
+  console.log(action?.payload?.length)
   switch (action.type) {
     case actionTypesPost.FETCH_ALL:
       return {
@@ -18,8 +19,9 @@ export default (
       };
     case actionTypesPost.SEARCH_POST:
       return {
-        ...state,
-        posts: action.payload,
+        currentPage: 1,
+        numberOfPages: 1,
+        posts: [...action.payload],
       };
     case actionTypesPost.CREATE:
       return { ...state, posts: [...state.posts, action.payload] };

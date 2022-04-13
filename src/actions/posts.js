@@ -25,11 +25,11 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
     const { data } = await api.fetchPostsBySearch(searchQuery);
 
     dispatch({
-      type: actionTypesPost.COMMENT,
+      type: actionTypesPost.SEARCH_POST,
       payload: data,
     });
   } catch (error) {
-      if (error.response.status===400){
+      if (error.response.status===401){
           dispatch({
               type:actionTypesAuth.LOGOUT
           })
@@ -42,7 +42,7 @@ export const createPost = (post) => async (dispatch) => {
     const { data } = await api.createPost(post);
     dispatch({ type: actionTypesPost.CREATE, payload: data });
   } catch (error) {
-    if (error.response.status===400){
+    if (error.response.status===401){
         dispatch({
             type:actionTypesAuth.LOGOUT
         })
@@ -52,12 +52,13 @@ export const createPost = (post) => async (dispatch) => {
 export const updatePost = (post) => async (dispatch) => {
   try {
     await api.updatePost(post);
+
     dispatch({
       type: actionTypesPost.UPDATE,
       payload: post,
     });
   } catch (error) {
-    if (error.response.status===400){
+    if (error.response.status===401){
         dispatch({
             type:actionTypesAuth.LOGOUT
         })
@@ -73,7 +74,7 @@ export const deletePost = (post) => async (dispatch) => {
       payload: post,
     });
   } catch (error) {
-    if (error.response.status===400){
+    if (error.response.status===401){
         dispatch({
             type:actionTypesAuth.LOGOUT
         })
@@ -89,7 +90,7 @@ export const likePost = (id) => async (dispatch) => {
       payload: post.data,
     });
   } catch (error) {
-    if (error.response.status===400){
+    if (error.response.status===401){
         dispatch({
             type:actionTypesAuth.LOGOUT
         })
@@ -107,7 +108,7 @@ export const commentPost = (value, id) => async (dispatch) => {
   return data.comments
   
   } catch (error) {
-    if (error.response.status===400){
+    if (error.response.status===401){
         dispatch({
             type:actionTypesAuth.LOGOUT
         })
