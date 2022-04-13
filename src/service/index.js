@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({baseURL:'http://localhost:5002/api/v1'})
+const API = axios.create({baseURL:'https://memoappmernstack.herokuapp.com/api/v1'})
 
 API.interceptors.request.use((req)=>{
 
