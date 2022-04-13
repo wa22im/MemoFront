@@ -22,12 +22,12 @@ function Paginate({page}) {
   return (
     <Pagination
     classes={{ ul: classes.ul }}
-    count={numberOfPages}
-    page={page}
+    count={parseInt(numberOfPages)}
+    page={parseInt(page)}
     variant="outlined"
     color="primary"
     renderItem={(item) => (
-      <PaginationItem {...item} component={Link} to={`/posts?page=${item.page}`} />
+      <PaginationItem {...item} component={Link} to={`/posts?page=${parseInt(item.page)}`} />
     )}
   />  )
 }

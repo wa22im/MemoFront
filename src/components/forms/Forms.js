@@ -22,6 +22,11 @@ const Form = ({ currentId, setCurrentId }) => {
   const handleSubmit = (e) => {
 
     e.preventDefault();
+    if(!user)
+    {
+      clearForm()
+      return
+    }
     if (!currentId)
       dispatch(createPost({ ...postData, name: user?.result?.name }));
     else {

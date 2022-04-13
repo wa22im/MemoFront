@@ -54,6 +54,7 @@ const Post = ({ post, setCurrentId }) => {
 
     history.push(`/posts/${post._id}`);
   };
+  console.log('creator',post?.creator)
   return (
     <Card className={classes.card} raised elevation={5}>
         <ButtonBase
