@@ -5,7 +5,7 @@ The app is deployed to vercel
 
 to install dependencies. 
 ### `BackEnd repo`
-check [Memobackend] (https://github.com/wa22im/memosBackend)
+check [Memobackend](https://github.com/wa22im/memosBackend)
 
 ### `npm start`
 
